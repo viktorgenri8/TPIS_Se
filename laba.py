@@ -2,6 +2,13 @@ import math
 import numpy as np
 
 class Solver:
+    """!  Класс реализующий паттерн шаблонный функции 
+    @param n количесво уравлнений
+    @param t время
+    @param f начальные условие
+    @param h шаг
+    @param k матрица значний уравнений
+    """
     n = None 
     t = None 
     f = None 
@@ -10,11 +17,13 @@ class Solver:
 
 
     def __init__(self):
+        """!  Функции инициализации """
         self.read()
         ans = self.solve()
         self.print(ans)
 
     def read(self):
+        """!  Функции чтения """
         self.n = int(input("Введите количесво уравнений "))
         self.h = float(input("Введите длину шага "))
         self.t = float(input('Введите длительнсь процесса '))
@@ -28,6 +37,9 @@ class Solver:
         
 
     def solve(self):
+        """!  Функции решение системы
+        @return 2 мерный масив ответов
+        """
         n = math.ceil(self.t / self.h)
         ans = np.zeros((n + 1, self.n))
         ans[0] = self.f.copy()
@@ -36,6 +48,9 @@ class Solver:
         return ans.tolist()
     
     def print(self, ans):
+        """!  Функции выводва данных
+        @param ans расчитанные данные
+        """
         print(ans)
 
 
