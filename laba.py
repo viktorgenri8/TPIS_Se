@@ -22,7 +22,6 @@ for i in range(n):
 
 k = np.zeros((n, n))
 for i in range(n):
-    
     for j in range(n):
         k[i][j] = float(input(f"Введите значение для k_{i}_{j} "))
 
